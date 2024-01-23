@@ -26,6 +26,7 @@ class DataLoader {
 
   // Create maps for immediate data access
   val indexedById: Map[String, List[Map[String, String]]] = allData.groupBy(row => row("id"))
+  val indexedByState: Map[String, List[Map[String, String]]] = allData.groupBy(row => row("addr_state"))
 
 
   //Access functions
@@ -34,4 +35,11 @@ class DataLoader {
 
   def getById(id: String): List[Map[String, String]] = indexedById.getOrElse(id, List.empty)
 
+  def getByState(state: String): List[Map[String, String]] = indexedByState.getOrElse(state, List.empty)
+
+  def getByStatePaginated(state: String, page: Int, pageSize: Int): List[Map[String, String]] = {
+    val startIndex = (page - 1) * pageSize
+    indexedByState.getOrElse(state, List.empty)
+      .slice(startIndex, startIndex + pageSize)
+  }
 }

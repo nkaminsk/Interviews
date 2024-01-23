@@ -7,6 +7,8 @@
 GET     /                           controllers.HomeController.index()
 
 GET     /getById/:id                        controllers.DataController.getById(id: String)
+GET     /getByState/:state                  controllers.DataController.getByState(state: String)
+GET     /getByStatePaginated/:state         controllers.DataController.getByStatePaginated(state: String, page: Int ?= 1, pageSize: Int ?= 10)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

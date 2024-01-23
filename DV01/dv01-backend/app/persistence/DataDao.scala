@@ -10,4 +10,13 @@ class DataDao @Inject()(
   def getById(id: String) = {
     dataLoader.getById(id)
   }
+
+  def getByState(state: String) = {
+    dataLoader.getByState(state)
+  }
+
+  def getByStatePaginated(state: String, page: Int, pageSize: Int) = {
+    dataLoader.getByStatePaginated(state, page, pageSize)
+  }
+
 }
