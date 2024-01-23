@@ -10,6 +10,10 @@ sbt -mem 4096 run
 
 And then go to <http://localhost:9000> to see the running web application.
 
+## Data
+  The suppled data file was too large to commit into Github, so a reduced version is committed.
+  Ideally the reduced CSV file is replaced with the actual.
+
 ## Controllers
 
 - `HomeController.scala`:
