@@ -29,3 +29,14 @@ And then go to <http://localhost:9000> to see the running web application.
 
   > http://localhost:9000/getByStatePaginated/CA?page=1&pageSize=5
   > http://localhost:9000/getByStatePaginated/badState
+
+## Services And Data Access
+  
+  Controllers -> Services -> Data Access -> Persistence
+
+## Persistence
+
+- `DataLoader.scala`:
+
+  There is a persistence module that is loaded at the start of the application that ingests the supplied CSV and stores it in memory.
+  Additional memory stores are created to function as indexed data in place of a database.
