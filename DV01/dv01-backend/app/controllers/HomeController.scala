@@ -11,7 +11,10 @@ import javax.inject._
  * application's home page.
  */
 @Singleton
-class HomeController @Inject()(val controllerComponents: ControllerComponents) extends BaseController {
+class HomeController @Inject()(
+  val controllerComponents: ControllerComponents,
+//  val dataLoader: DataLoader
+) extends BaseController {
 
   /**
    * Create an Action to render an HTML page.
@@ -22,9 +25,7 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents) e
    */
   private final val filePath = "/data/dataset.csv"
   def index() = Action { implicit request: Request[AnyContent] =>
-//    val inputStream = this.getClass.getResourceAsStream(filePath)
-//    val reader = CSVReader.open(new InputStreamReader(inputStream))
-//    val header = reader.allWithHeaders().head.keys
+//    val allData = dataLoader.getData()
     Ok(s"Welcome to Play")
   }
 }
