@@ -1,8 +1,10 @@
 package controllers
 
-import javax.inject._
-import play.api._
+import com.github.tototoshi.csv.CSVReader
 import play.api.mvc._
+
+import java.io.InputStreamReader
+import javax.inject._
 
 /**
  * This controller creates an `Action` to handle HTTP requests to the
@@ -18,7 +20,11 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents) e
    * will be called when the application receives a `GET` request with
    * a path of `/`.
    */
+  private final val filePath = "/data/dataset.csv"
   def index() = Action { implicit request: Request[AnyContent] =>
-    Ok(s"Ok")
+//    val inputStream = this.getClass.getResourceAsStream(filePath)
+//    val reader = CSVReader.open(new InputStreamReader(inputStream))
+//    val header = reader.allWithHeaders().head.keys
+    Ok(s"Welcome to Play")
   }
 }
