@@ -18,12 +18,20 @@ class DataLoaderModule extends AbstractModule {
 class DataLoader {
 
   // Starting code for importing CSV data
-  val filePath = "/data/dataset2.csv"
+  val filePath = "/data/dataset.csv"
   val inputStream = this.getClass.getResourceAsStream(filePath)
   val reader = CSVReader.open(new InputStreamReader(inputStream))
 
   val allData = reader.allWithHeaders()
 
+  // Create maps for immediate data access
+  val indexedById: Map[String, List[Map[String, String]]] = allData.groupBy(row => row("id"))
+
+
+  //Access functions
+
   def getData() = allData
+
+  def getById(id: String): List[Map[String, String]] = indexedById.getOrElse(id, List.empty)
 
 }
